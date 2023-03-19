@@ -109,17 +109,17 @@ Use the addReview function below to do the following:
 
 
 function addReview(array, name, rating, feedback){
-  let newone = []
-  newone.name = name
-  newone.rating = rating
-  newone.feedback = feedback
-  return newone
-  
+const newOne = {}
+newOne.name = name
+newOne.rating = rating
+newOne.feedback = feedback
+array.push(newOne)
+return array
 }
 
 
-let hey = addReview(reviews, "Daniela", 5, "great eats!")
-console.log(hey)
+console.log(`Task 5: `, addReview(reviews, "Daniela", 5, "great eats!"))
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
@@ -132,10 +132,13 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, number) {
+  const foundReview = array[number]
+
+  return `${foundReview.name} gave the restaurant a ${foundReview.rating} star review, and their feedback was: ${foundReview.feedback}`
 }
 
+console.log(`Task 6: `, getReviewByIndex(reviews, 5))
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -151,8 +154,10 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+  const lastReview = array[array.length - 1]
+
+  return `${lastReview.name} gave the restaurant a ${lastReview.rating} star review, and their feedback was: ${lastReview.feedback}`
 } 
 
 
