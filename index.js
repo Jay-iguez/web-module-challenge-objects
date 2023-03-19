@@ -178,11 +178,25 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+ function getReviewByRating(array, rating) {
+    const filterReview = []
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].rating === rating && rating >= 0.01 && rating <= 1.00) {
+        filterReview.push(array[i])
+      } else if (array[i].rating === rating && rating >= 1 && rating <= 2.00) {
+        filterReview.push(array[i])
+      } else if (array[i].rating === rating && rating >= 2 && rating <= 3.00) {
+        filterReview.push(array[i])
+      } else if (array[i].rating === rating && rating >= 3 && rating <= 4.00) {
+        filterReview.push(array[i])
+      } else if (array[i].rating === rating && rating >= 4 && rating <= 5) {
+        filterReview.push(array[i])
+      }
+    }
+    return filterReview
   }
 
-  
+  console.log(`Stretch 1: `, getReviewByRating(reviews, 4))
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
 Use the getLongReviews function below to do the following:
   1. Receive the array that holds all the reviews
@@ -196,10 +210,17 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(array) {
+    const bigReview = []
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].feedback.split(' ').length >= 15) {
+        bigReview.push(array[i])
+      }
+    }
+    return bigReview
   }
   
+console.log(`Stretch 2`, getLongReviews(reviews))
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
 This stretch goal does not use the reviews data!  You create your own object in this stretch goal.
@@ -219,11 +240,31 @@ Use the carMaker function below to do the following:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
-    
+/*function carMaker(odemeter) {
+    const car1 = {
+      drive: function (distance) {
+        odemeter = this.odemeter + this.drive(distance)
+        return odemeter
+      }
+    }
+    car1.drive(100)
+    return odemeter
+} */
+
+function carMaker(odometer) {
+  const car1 = {
+    odometer: odometer,
+    drive: function(distance) {
+      this.odometer = this.odometer + distance;
+      return this.odometer;
+    }
+  };
+  car1.drive(100);
+  return car1.odometer;
 }
 
+
+console.log(carMaker(1))
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
